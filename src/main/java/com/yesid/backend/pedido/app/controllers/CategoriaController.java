@@ -20,16 +20,16 @@ import com.yesid.backend.pedido.app.validations.Validacion;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/etiquetas")
-public class EtiquetaController {
+@RequestMapping("/api/categoria")
+public class CategoriaController {
 	
 	@Autowired
-	private CategoriaService etiquetaService;
+	private CategoriaService categoriaService;
 	
 	@GetMapping
 	public ResponseEntity<?> listar() {
 		try {
-			return ResponseEntity.ok(etiquetaService.findAll());
+			return ResponseEntity.ok(categoriaService.findAll());
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
@@ -38,31 +38,31 @@ public class EtiquetaController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 		try {
-			return ResponseEntity.ok(etiquetaService.findById(id));
+			return ResponseEntity.ok(categoriaService.findById(id));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> crear(@Valid @RequestBody Categoria etiqueta, BindingResult result) {
+	public ResponseEntity<?> crear(@Valid @RequestBody Categoria categoria, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
 				return Validacion.registrarErrorCampo(result);
 			}
-			return ResponseEntity.status(HttpStatus.CREATED).body(etiquetaService.save(etiqueta));
+			return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.save(categoria));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Categoria etiqueta, BindingResult result) {
+	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Categoria categoria, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
 				return Validacion.registrarErrorCampo(result);
 			}
-			return ResponseEntity.status(HttpStatus.CREATED).body(etiquetaService.update(id, etiqueta));
+			return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.update(id, categoria));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
@@ -71,7 +71,7 @@ public class EtiquetaController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> eliminar(@PathVariable Long id) {
 		try {
-			etiquetaService.deleteById(id);
+			categoriaService.deleteById(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
