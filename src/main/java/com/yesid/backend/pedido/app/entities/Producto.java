@@ -48,8 +48,8 @@ public class Producto {
 	private String tipo; //Terminado, insumo
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="etiqueta_id")
-	private Categoria etiqueta;
+	@JoinColumn(name="categoria_id")
+	private Categoria categoria;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="proveedor_id")
@@ -58,10 +58,6 @@ public class Producto {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
 	private Producto producto;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="catalogo_id")
-	private Catalogo catalogo;
 	
 	@OneToMany(mappedBy="producto", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Producto> productos;
