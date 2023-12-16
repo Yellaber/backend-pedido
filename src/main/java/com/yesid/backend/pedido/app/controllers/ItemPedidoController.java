@@ -20,7 +20,7 @@ import com.yesid.backend.pedido.app.validations.Validacion;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/items_pedidos")
+@RequestMapping("/api/item")
 public class ItemPedidoController {
 	
 	@Autowired
@@ -30,15 +30,6 @@ public class ItemPedidoController {
 	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 		try {
 			return ResponseEntity.ok(itemPedidoService.findById(id));
-		} catch(Exception ex) {
-			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
-		}
-	}
-	
-	@GetMapping("/pedido/{pedido_id}")
-	public ResponseEntity<?> listarItemsPorPedido(@PathVariable(value="pedido_id") Long pedidoId) {
-		try {
-			return ResponseEntity.ok(itemPedidoService.findByPedidoId(pedidoId));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
