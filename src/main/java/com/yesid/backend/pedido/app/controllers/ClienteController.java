@@ -23,7 +23,7 @@ import com.yesid.backend.pedido.app.services.ClienteService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("appi/clientes")
+@RequestMapping("appi/cliente")
 public class ClienteController {
 	
 	@Autowired
