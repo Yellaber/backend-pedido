@@ -15,9 +15,9 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
-@Table(name="etiquetas")
+@Table(name="categorias")
 @Data
-public class Etiqueta {
+public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,10 +27,10 @@ public class Etiqueta {
 	private String nombre;
 	private String descripcion;
 	
-	@OneToMany(mappedBy="etiqueta", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="categoria", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Producto> productos;
 	
-	public Etiqueta() {
+	public Categoria() {
 		this.productos = new ArrayList<Producto>();
 	}
 }

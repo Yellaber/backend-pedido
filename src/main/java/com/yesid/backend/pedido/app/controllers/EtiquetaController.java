@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yesid.backend.pedido.app.entities.Etiqueta;
+import com.yesid.backend.pedido.app.entities.Categoria;
 import com.yesid.backend.pedido.app.services.EtiquetaService;
 import com.yesid.backend.pedido.app.validations.Validacion;
 
@@ -45,7 +45,7 @@ public class EtiquetaController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> crear(@Valid @RequestBody Etiqueta etiqueta, BindingResult result) {
+	public ResponseEntity<?> crear(@Valid @RequestBody Categoria etiqueta, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
 				return Validacion.registrarErrorCampo(result);
@@ -57,7 +57,7 @@ public class EtiquetaController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Etiqueta etiqueta, BindingResult result) {
+	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Categoria etiqueta, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
 				return Validacion.registrarErrorCampo(result);
