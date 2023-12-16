@@ -20,7 +20,7 @@ import com.yesid.backend.pedido.app.validations.Validacion;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/productos")
+@RequestMapping("api/producto")
 public class ProductoController {
 	
 	@Autowired
