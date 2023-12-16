@@ -28,9 +28,9 @@ public class Catalogo {
 	private String descripcion;
 	
 	@OneToMany(mappedBy="catalogo", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Producto> productos;
+	private List<Categoria> categorias;
 	
 	public Catalogo() {
-		this.productos = new ArrayList<Producto>();
+		this.categorias = new ArrayList<Categoria>();
 	}
 }
