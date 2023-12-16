@@ -1,7 +1,5 @@
 package com.yesid.backend.pedido.app.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,15 +12,6 @@ public class ItemPedidoService {
 	
 	@Autowired
 	private IItemPedidoRepository itemCarritoRepositorio;
-	
-	@Transactional(readOnly=true)
-	public List<ItemPedido> findByPedidoId(Long pedidoId) throws Exception {
-		List<ItemPedido> itemsCarrito = itemCarritoRepositorio.findByPedidoId(pedidoId);
-		if(itemsCarrito == null || itemsCarrito.isEmpty()) {
-			throw new Exception("No existen Items registrados en el sistema para este Pedido.");
-		}
-		return itemsCarrito;
-	}
 	
 	@Transactional(readOnly=true)
 	public ItemPedido findById(Long id) throws Exception {
