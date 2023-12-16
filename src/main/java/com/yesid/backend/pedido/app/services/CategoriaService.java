@@ -10,53 +10,53 @@ import com.yesid.backend.pedido.app.entities.Categoria;
 import com.yesid.backend.pedido.app.repositories.ICategoriaRepository;
 
 @Service
-public class EtiquetaService {
+public class CategoriaService {
 	
 	@Autowired
-	private ICategoriaRepository etiquetaRepositorio;
+	private ICategoriaRepository categoriaRepositorio;
 	
 	@Transactional(readOnly=true)
 	public List<Categoria> findAll() throws Exception {
-		List<Categoria> etiquetas = etiquetaRepositorio.findAll();
+		List<Categoria> etiquetas = categoriaRepositorio.findAll();
 		if(etiquetas == null || etiquetas.isEmpty()) {
-			throw new Exception("No existen Etiquetas registradas en el sistema.");		
+			throw new Exception("No existen Categorias registradas en el sistema.");		
 		}
 		return etiquetas;
 	}
 	
 	@Transactional(readOnly=true)
 	public Categoria findById(Long id) throws Exception {
-		Categoria etiqueta = etiquetaRepositorio.findById(id).orElse(null);
+		Categoria etiqueta = categoriaRepositorio.findById(id).orElse(null);
 		if(etiqueta == null) {
-			throw new Exception("Esta Etiqueta no se encuentra registrada en el sistema.");
+			throw new Exception("Esta Categoria no se encuentra registrada en el sistema.");
 		}
 		return etiqueta;
 	}
 	
 	@Transactional
 	public Categoria save(Categoria etiqueta) throws Exception {
-		if(etiquetaRepositorio.existsById(etiqueta.getId())) {
-			throw new Exception("Esta Etiqueta ya se encuentra registrada en el sistema.");
+		if(categoriaRepositorio.existsById(etiqueta.getId())) {
+			throw new Exception("Esta Categoria ya se encuentra registrada en el sistema.");
 		}
-		return etiquetaRepositorio.save(etiqueta);
+		return categoriaRepositorio.save(etiqueta);
 	}
 	
 	@Transactional
 	public Categoria update(Long id, Categoria etiqueta) throws Exception {
-		Categoria etiquetaEncontrada = etiquetaRepositorio.findById(id).orElse(null);
+		Categoria etiquetaEncontrada = categoriaRepositorio.findById(id).orElse(null);
 		if(etiquetaEncontrada == null) {
-			throw new Exception("Esta Etiqueta no se encuentra registrada en el sistema.");
+			throw new Exception("Esta Categoria no se encuentra registrada en el sistema.");
 		}
 		etiquetaEncontrada.setNombre(etiqueta.getNombre());
 		etiquetaEncontrada.setDescripcion(etiqueta.getDescripcion());
-		return etiquetaRepositorio.save(etiquetaEncontrada);
+		return categoriaRepositorio.save(etiquetaEncontrada);
 	}
 	
 	@Transactional
 	public void deleteById(Long id) throws Exception {
-		if(!etiquetaRepositorio.existsById(id)) {
-			throw new Exception("Esta Etiqueta no se encuentra registrada en el sistema.");
+		if(!categoriaRepositorio.existsById(id)) {
+			throw new Exception("Esta Categoria no se encuentra registrada en el sistema.");
 		}
-		etiquetaRepositorio.deleteById(id);
+		categoriaRepositorio.deleteById(id);
 	}
 }

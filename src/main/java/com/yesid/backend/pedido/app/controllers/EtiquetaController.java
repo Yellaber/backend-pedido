@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yesid.backend.pedido.app.entities.Categoria;
-import com.yesid.backend.pedido.app.services.EtiquetaService;
+import com.yesid.backend.pedido.app.services.CategoriaService;
 import com.yesid.backend.pedido.app.validations.Validacion;
 
 import jakarta.validation.Valid;
@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 public class EtiquetaController {
 	
 	@Autowired
-	private EtiquetaService etiquetaService;
+	private CategoriaService etiquetaService;
 	
 	@GetMapping
 	public ResponseEntity<?> listar() {
