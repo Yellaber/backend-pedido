@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yesid.backend.pedido.app.entities.Categoria;
-import com.yesid.backend.pedido.app.repositories.IEtiquetaRepository;
+import com.yesid.backend.pedido.app.repositories.ICategoriaRepository;
 
 @Service
 public class EtiquetaService {
 	
 	@Autowired
-	private IEtiquetaRepository etiquetaRepositorio;
+	private ICategoriaRepository etiquetaRepositorio;
 	
 	@Transactional(readOnly=true)
 	public List<Categoria> findAll() throws Exception {
