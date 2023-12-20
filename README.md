@@ -28,4 +28,4 @@ Las Response de las Request de tipo `GET`, `POST`, `PUT` y `DELETE` así como lo
 * `404` para cuando no se encuentra el registro solicitado en peticiones de tipo `GET`, `PUT` y `DELETE`.
 
 ## Modelo ER
-![Modelo ER de la BD para gestionar pedidos](/images/modelo-er-backend-pedido.png)
+![Modelo ER de la BD para gestionar pedidos](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/modelo-er-backend-pedido.png)
