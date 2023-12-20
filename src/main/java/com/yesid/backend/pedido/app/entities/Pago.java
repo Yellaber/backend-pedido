@@ -39,10 +39,6 @@ public class Pago {
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="vendedor_id")
-	private Vendedor vendedor;
-	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pedido_id")
 	private Pedido pedido;
