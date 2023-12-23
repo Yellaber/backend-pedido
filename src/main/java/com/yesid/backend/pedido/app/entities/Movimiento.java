@@ -16,11 +16,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 
 @Entity
 @Table(name="movimientos")
-@Data
 public class Movimiento {
 	
 	@Id
@@ -42,5 +40,43 @@ public class Movimiento {
 	@PrePersist
 	public void prePersist() {
 		this.fecha = new Date();
+	}
+
+	public Movimiento() {}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 }
