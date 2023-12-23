@@ -23,11 +23,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
 
 @Entity
 @Table(name="pedidos")
-@Data
 public class Pedido {
 	
 	@Id
@@ -63,6 +61,72 @@ public class Pedido {
 		this.fecha = new Date();
 	}
 	
+	public Pedido() {}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public Double getValorEnvio() {
+		return valorEnvio;
+	}
+
+	public void setValorEnvio(Double valorEnvio) {
+		this.valorEnvio = valorEnvio;
+	}
+
+	public Cuenta getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Cuenta cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Vendedor getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+
+	public List<ItemPedido> getItemsPedido() {
+		return itemsPedido;
+	}
+
+	public void setItemsPedido(List<ItemPedido> itemsPedido) {
+		this.itemsPedido = itemsPedido;
+	}
+
 	public void addItemPedido(ItemPedido itemPedido) {
 		this.itemsPedido.add(itemPedido);
 	}
