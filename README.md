@@ -2,7 +2,7 @@
 Este repositorio contiene la API relacionada con la gestión de pedidos, empleando **JPA** para la persistencia, la relación entre sus entidades y sus correspondientes metodos CRUD.
 
 ## Entidades
-Catalogo, Categoria, Cliente, Cuenta, ItemPedido, Movimiento, Pago, Pedido, Producto, Proveedor y Vendedor.
+Catalogo, Categoria, Cliente, Cuenta, ItemPedido, Mesa, Movimiento, Pago, Pedido, Producto y Proveedor.
 
 ## Request de las APIs
 * Para Catalogo: `/api/catalogo`
