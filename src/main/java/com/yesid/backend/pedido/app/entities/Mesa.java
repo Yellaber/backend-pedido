@@ -14,8 +14,8 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name="vendedores")
-public class Vendedor {
+@Table(name="mesas")
+public class Mesa {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,13 +24,10 @@ public class Vendedor {
 	@NotBlank
 	private String nombre;
 	
-	@NotBlank
-	private String apellidos;
-	
 	@OneToMany(mappedBy="vendedor", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Pedido> pedidos;
 	
-	public Vendedor() {
+	public Mesa() {
 		this.pedidos = new ArrayList<Pedido>();
 	}
 
@@ -44,14 +41,6 @@ public class Vendedor {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
 	}
 
 	public List<Pedido> getPedidos() {
