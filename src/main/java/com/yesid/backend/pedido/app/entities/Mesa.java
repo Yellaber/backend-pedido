@@ -24,7 +24,7 @@ public class Mesa {
 	@NotBlank
 	private String nombre;
 	
-	@OneToMany(mappedBy="vendedor", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="mesa", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Pedido> pedidos;
 	
 	public Mesa() {
