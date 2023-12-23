@@ -6,57 +6,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.yesid.backend.pedido.app.entities.Vendedor;
-import com.yesid.backend.pedido.app.repositories.IVendedorRepository;
+import com.yesid.backend.pedido.app.entities.Mesa;
+import com.yesid.backend.pedido.app.repositories.IMesaRepository;
 
 @Service
-public class VendedorService {
+public class MesaService {
 	
 	@Autowired
-	private IVendedorRepository vendedorRepositorio;
+	private IMesaRepository mesaRepositorio;
 	
 	@Transactional(readOnly=true)
-	public List<Vendedor> findAll() throws Exception {
-		List<Vendedor> vendedores = vendedorRepositorio.findAll();
-		if(vendedores == null || vendedores.isEmpty()) {
-			throw new Exception("No existen Vendedores registrados en el sistema.");
+	public List<Mesa> findAll() throws Exception {
+		List<Mesa> mesas = mesaRepositorio.findAll();
+		if(mesas == null || mesas.isEmpty()) {
+			throw new Exception("No existen Mesas registradas en el sistema.");
 		}
-		return vendedores;
+		return mesas;
 	}
 	
 	@Transactional(readOnly=true)
-	public Vendedor findById(Long id) throws Exception {
-		Vendedor vendedor = vendedorRepositorio.findById(id).orElse(null);
-		if(vendedor == null) {
-			throw new Exception("Este Vendedor no se encuentra registrado en el sistema.");
+	public Mesa findById(Long id) throws Exception {
+		Mesa mesa = mesaRepositorio.findById(id).orElse(null);
+		if(mesa == null) {
+			throw new Exception("Esta Mesa no se encuentra registrada en el sistema.");
 		}
-		return vendedor;
+		return mesa;
 	}
 	
 	@Transactional
-	public Vendedor save(Vendedor vendedor) throws Exception {
-		if(vendedorRepositorio.existsById(vendedor.getId())) {
-			throw new Exception("Este Vendedor ya se encuentra registrado en el sistema.");
+	public Mesa save(Mesa mesa) throws Exception {
+		if(mesaRepositorio.existsById(mesa.getId())) {
+			throw new Exception("Esta Mesa ya se encuentra registrada en el sistema.");
 		}
-		return vendedorRepositorio.save(vendedor);
+		return mesaRepositorio.save(mesa);
 	}
 	
 	@Transactional
-	public Vendedor update(Long id, Vendedor vendedor) throws Exception {
-		Vendedor vendedorEncontrado = vendedorRepositorio.findById(id).orElse(null);
-		if(vendedorEncontrado == null) {
-			throw new Exception("Este Vendedor no se encuentra registrado en el sistema.");
+	public Mesa update(Long id, Mesa mesa) throws Exception {
+		Mesa mesaEncontrado = mesaRepositorio.findById(id).orElse(null);
+		if(mesaEncontrado == null) {
+			throw new Exception("Esta Mesa no se encuentra registrada en el sistema.");
 		}
-		vendedorEncontrado.setNombre(vendedor.getNombre());
-		vendedorEncontrado.setApellidos(vendedor.getApellidos());
-		return vendedorRepositorio.save(vendedorEncontrado);
+		mesaEncontrado.setNombre(mesa.getNombre());
+		return mesaRepositorio.save(mesaEncontrado);
 	}
 	
 	@Transactional
 	public void deleteById(Long id) throws Exception {
-		if(!vendedorRepositorio.existsById(id)) {
-			throw new Exception("Este Vendedor no se encuentra registrado en el sistema.");
+		if(!mesaRepositorio.existsById(id)) {
+			throw new Exception("Esta Mesa no se encuentra registrada en el sistema.");
 		}
-		vendedorRepositorio.deleteById(id);
+		mesaRepositorio.deleteById(id);
 	}
 }
