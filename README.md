@@ -10,12 +10,12 @@ Catalogo, Categoria, Cliente, Cuenta, ItemPedido, Movimiento, Pago, Pedido, Prod
 * Para Cliente: `/api/cliente`
 * Para Cuenta: `/api/cuenta`
 * Para ItemPedido: `/api/item`
+* Para Mesa: `/api/mesa`
 * Para Movimiento: `/api/movimiento`
 * Para Pago: `/api/pago`
 * Para Pedido: `/api/pedido`
 * Para Producto: `/api/producto`
 * Para Proveedor: `/api/proveedor`
-* Para Vendedor: `/api/vendedor`
 
 ## Formato de las Response
 Las Response de las Request de tipo `GET`, `POST`, `PUT` y `DELETE` así como los errores son de tipo `JSON`.
