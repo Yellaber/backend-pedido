@@ -12,11 +12,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 
 @Entity
 @Table(name="catalogos")
-@Data
 public class Catalogo {
 	
 	@Id
@@ -32,5 +30,29 @@ public class Catalogo {
 	
 	public Catalogo() {
 		this.categorias = new ArrayList<Categoria>();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
 	}
 }
