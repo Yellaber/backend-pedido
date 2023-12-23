@@ -48,7 +48,7 @@ public class PedidoService {
 			throw new Exception("Este Pedido no se encuentra registrado en el sistema.");
 		}
 		pedidoEncontrado.setEstado(pedido.getEstado());
-		pedidoEncontrado.setValorEnvio(pedido.getValorEnvio());
+		pedidoEncontrado.setEnvio(pedido.getEnvio());
 		return pedidoRepositorio.save(pedidoEncontrado);
 	}
 	
