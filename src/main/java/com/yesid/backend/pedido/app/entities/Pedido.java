@@ -9,7 +9,6 @@ import java.util.Map;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -38,8 +37,7 @@ public class Pedido {
 	private String estado; //Nuevo, listo, enviado, entregado, pagado, cancelado
 	
 	@NotNull
-	@Column(name="valor_envio")
-	private Double valorEnvio;
+	private Double envio;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cuenta_id")
@@ -50,8 +48,8 @@ public class Pedido {
 	private Cliente cliente;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="vendedor_id")
-	private Vendedor vendedor;
+	@JoinColumn(name="mesa_id")
+	private Mesa mesa;
 	
 	@OneToMany(mappedBy="pedido", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<ItemPedido> itemsPedido;
@@ -87,12 +85,12 @@ public class Pedido {
 		this.estado = estado;
 	}
 
-	public Double getValorEnvio() {
-		return valorEnvio;
+	public Double getEnvio() {
+		return envio;
 	}
 
-	public void setValorEnvio(Double valorEnvio) {
-		this.valorEnvio = valorEnvio;
+	public void setEnvio(Double envio) {
+		this.envio = envio;
 	}
 
 	public Cuenta getCuenta() {
@@ -111,12 +109,12 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public Vendedor getVendedor() {
-		return vendedor;
+	public Mesa getMesa() {
+		return mesa;
 	}
 
-	public void setVendedor(Vendedor vendedor) {
-		this.vendedor = vendedor;
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
 	}
 
 	public List<ItemPedido> getItemsPedido() {
