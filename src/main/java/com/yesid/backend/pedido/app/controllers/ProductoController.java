@@ -35,15 +35,6 @@ public class ProductoController {
 		}
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
-		try {
-			return ResponseEntity.ok(productoService.findById(id));
-		} catch(Exception ex) {
-			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
-		}
-	}
-	
 	@GetMapping("/{nombre}")
 	public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre) {
 		try {
