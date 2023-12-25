@@ -30,7 +30,6 @@ public class Producto {
 	
 	@NotBlank
 	private String nombre;
-	private String descripcion;
 	
 	@NotBlank
 	private String medida; //Kilogramos, gramos, centimetros, unidades
@@ -90,14 +89,6 @@ public class Producto {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
 	}
 
 	public String getMedida() {
