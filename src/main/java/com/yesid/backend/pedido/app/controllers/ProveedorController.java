@@ -35,17 +35,8 @@ public class ProveedorController {
 		}
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
-		try {
-			return ResponseEntity.ok(proveedorService.findById(id));
-		} catch(Exception ex) {
-			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
-		}
-	}
-	
 	@GetMapping("/{nombre}")
-	public ResponseEntity<?> buscarPorId(@PathVariable String nombre) {
+	public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre) {
 		try {
 			return ResponseEntity.ok(proveedorService.findByNombre(nombre));
 		} catch(Exception ex) {
