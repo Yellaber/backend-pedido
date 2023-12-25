@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yesid.backend.pedido.app.entities.Cliente;
 import com.yesid.backend.pedido.app.services.ClienteService;
+import com.yesid.backend.pedido.app.validations.Validacion;
 
 import jakarta.validation.Valid;
 
@@ -35,7 +36,7 @@ public class ClienteController {
 			List<Cliente> clientes = clienteService.findAll();
 			return ResponseEntity.ok(clientes);
 		} catch(Exception ex) {
-			return registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
+			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -45,7 +46,7 @@ public class ClienteController {
 			Cliente cliente = clienteService.findById(id);
 			return ResponseEntity.ok(cliente);
 		} catch(Exception ex) {
-			return registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
+			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -55,7 +56,7 @@ public class ClienteController {
 			Cliente cliente = clienteService.findByCedula(cedula);
 			return ResponseEntity.ok(cliente);
 		} catch(Exception ex) {
-			return registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
+			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -63,11 +64,11 @@ public class ClienteController {
 	public ResponseEntity<?> crear(@Valid @RequestBody Cliente cliente, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
-				return registrarErrorCampo(result);
+				return Validacion.registrarErrorCampo(result);
 			}
 			return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.save(cliente));
 		} catch(Exception ex) {
-			return registrarError(ex.getMessage(), HttpStatus.BAD_REQUEST);
+			return Validacion.registrarError(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -75,11 +76,11 @@ public class ClienteController {
 	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Cliente cliente, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
-				return registrarErrorCampo(result);
+				return Validacion.registrarErrorCampo(result);
 			}
 			return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.update(id, cliente));
 		} catch(Exception ex) {
-			return registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
+			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -89,21 +90,7 @@ public class ClienteController {
 			clienteService.deleteById(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		} catch(Exception ex) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
-	}
-	
-	private ResponseEntity<?> registrarErrorCampo(BindingResult result) {
-		Map<String, String> errores = new HashMap<>();
-		result.getFieldErrors().forEach(error -> {
-			errores.put(error.getField(), "El campo " + error.getField() + " " + error.getDefaultMessage());
-		});
-		return ResponseEntity.badRequest().body(errores);
-	}
-	
-	private ResponseEntity<?> registrarError(String mensaje, HttpStatus estado) {
-		Map<String, String> error = new HashMap<>();
-		error.put("Error", mensaje);
-		return ResponseEntity.status(estado).build();
-	}
+	}	
 }
