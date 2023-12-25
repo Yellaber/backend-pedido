@@ -57,12 +57,12 @@ public class CatalogoController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Catalogo catologo, BindingResult result) {
+	public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody Catalogo catalogo, BindingResult result) {
 		try {
 			if(result.hasErrors()) {
 				return Validacion.registrarErrorCampo(result);
 			}
-			return ResponseEntity.status(HttpStatus.CREATED).body(catalogoService.update(id, catologo));
+			return ResponseEntity.status(HttpStatus.CREATED).body(catalogoService.update(id, catalogo));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
