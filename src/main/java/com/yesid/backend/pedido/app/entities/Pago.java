@@ -29,14 +29,6 @@ public class Pago {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cuenta_id")
-	private Cuenta cuenta;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cliente_id")
-	private Cliente cliente;
-	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pedido_id")
 	private Pedido pedido;
@@ -58,22 +50,6 @@ public class Pago {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
-	}
-
-	public Cuenta getCuenta() {
-		return cuenta;
-	}
-
-	public void setCuenta(Cuenta cuenta) {
-		this.cuenta = cuenta;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public Pedido getPedido() {
