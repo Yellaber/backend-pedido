@@ -1,8 +1,6 @@
 package com.yesid.backend.pedido.app.controllers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +22,7 @@ import com.yesid.backend.pedido.app.validations.Validacion;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("appi/cliente")
+@RequestMapping("api/cliente")
 public class ClienteController {
 	
 	@Autowired
@@ -43,18 +41,7 @@ public class ClienteController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
 		try {
-			Cliente cliente = clienteService.findById(id);
-			return ResponseEntity.ok(cliente);
-		} catch(Exception ex) {
-			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
-		}
-	}
-	
-	@GetMapping("/{cedula}")
-	public ResponseEntity<?> buscarPorCedula(@PathVariable String cedula) {
-		try {
-			Cliente cliente = clienteService.findByCedula(cedula);
-			return ResponseEntity.ok(cliente);
+			return ResponseEntity.ok(clienteService.findById(id));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
