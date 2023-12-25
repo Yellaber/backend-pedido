@@ -10,7 +10,7 @@ import org.springframework.validation.BindingResult;
 public class Validacion {
 	
 	public static ResponseEntity<?> registrarErrorCampo(BindingResult result) {
-		Map<String, String> errores = new HashMap<>();
+		Map<String, String> errores = new HashMap<String, String>();
 		result.getFieldErrors().forEach(error -> {
 			errores.put(error.getField(), "El campo " + error.getField() + " " + error.getDefaultMessage());
 		});
@@ -18,8 +18,8 @@ public class Validacion {
 	}
 	
 	public static ResponseEntity<?> registrarError(String mensaje, HttpStatus estado) {
-		Map<String, String> error = new HashMap<>();
+		Map<String, String> error = new HashMap<String, String>();
 		error.put("Error", mensaje);
-		return ResponseEntity.status(estado).build();
+		return ResponseEntity.status(estado).body(error);
 	}
 }
