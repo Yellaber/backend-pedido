@@ -35,8 +35,10 @@ public class CuentaService {
 	
 	@Transactional
 	public Cuenta save(Cuenta cuenta) throws Exception {
-		if(cuentaRepositorio.existsById(cuenta.getId())) {
-			throw new Exception("Esta Cuenta ya se encuentra registrada en el sistema.");
+		if(cuenta.getId() != null) {
+			if(cuentaRepositorio.existsById(cuenta.getId())) {
+				throw new Exception("Esta Cuenta ya se encuentra registrada en el sistema.");
+			}
 		}
 		return cuentaRepositorio.save(cuenta);
 	}
