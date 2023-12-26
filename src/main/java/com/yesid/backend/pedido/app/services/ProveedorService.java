@@ -44,8 +44,10 @@ public class ProveedorService {
 	
 	@Transactional
 	public Proveedor save(Proveedor proveedor) throws Exception {
-		if(proveedorRepositorio.existsById(proveedor.getId())) {
-			throw new Exception("Este Proveedor ya se encuentra registrado en el sistema.");
+		if(proveedor.getId() != null) {
+			if(proveedorRepositorio.existsById(proveedor.getId())) {
+				throw new Exception("Este Proveedor ya se encuentra registrado en el sistema.");
+			}
 		}
 		return proveedorRepositorio.save(proveedor);
 	}
