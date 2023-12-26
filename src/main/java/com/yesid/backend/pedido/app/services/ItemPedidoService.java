@@ -24,8 +24,10 @@ public class ItemPedidoService {
 	
 	@Transactional
 	public ItemPedido save(ItemPedido itemCarrito) throws Exception {
-		if(itemCarritoRepositorio.existsById(itemCarrito.getId())) {
-			throw new Exception("Este Item ya se encuentra registrado en el sistema.");
+		if(itemCarrito.getId() != null) {
+			if(itemCarritoRepositorio.existsById(itemCarrito.getId())) {
+				throw new Exception("Este Item ya se encuentra registrado en el sistema.");
+			}
 		}
 		return itemCarritoRepositorio.save(itemCarrito);
 	}
