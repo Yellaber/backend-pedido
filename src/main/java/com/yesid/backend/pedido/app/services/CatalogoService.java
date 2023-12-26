@@ -35,8 +35,10 @@ public class CatalogoService {
 	
 	@Transactional
 	public Catalogo save(Catalogo catalogo) throws Exception {
-		if(catalogoRepositorio.existsById(catalogo.getId())) {
-			throw new Exception("Este Catalogo ya se encuentra registrado en el sistema.");
+		if(catalogo.getId() != null) {
+			if(catalogoRepositorio.existsById(catalogo.getId())) {
+				throw new Exception("Este Catalogo ya se encuentra registrado en el sistema.");
+			}
 		}
 		return catalogoRepositorio.save(catalogo);
 	}
