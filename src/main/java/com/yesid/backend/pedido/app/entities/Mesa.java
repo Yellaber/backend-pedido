@@ -3,6 +3,8 @@ package com.yesid.backend.pedido.app.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,6 +26,7 @@ public class Mesa {
 	@NotBlank
 	private String nombre;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy="mesa", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Pedido> pedidos;
 	
