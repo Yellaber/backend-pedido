@@ -34,11 +34,13 @@ public class CategoriaService {
 	}
 	
 	@Transactional
-	public Categoria save(Categoria etiqueta) throws Exception {
-		if(categoriaRepositorio.existsById(etiqueta.getId())) {
-			throw new Exception("Esta Categoria ya se encuentra registrada en el sistema.");
+	public Categoria save(Categoria categoria) throws Exception {
+		if(categoria.getId() != null) {
+			if(categoriaRepositorio.existsById(categoria.getId())) {
+				throw new Exception("Esta Categoria ya se encuentra registrada en el sistema.");
+			}
 		}
-		return categoriaRepositorio.save(etiqueta);
+		return categoriaRepositorio.save(categoria);
 	}
 	
 	@Transactional
