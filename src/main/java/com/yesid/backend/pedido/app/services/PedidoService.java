@@ -35,8 +35,10 @@ public class PedidoService {
 	
 	@Transactional
 	public Pedido save(Pedido pedido) throws Exception {
-		if(pedidoRepositorio.existsById(pedido.getId())) {
-			throw new Exception("Este Pedido ya se encuentra registrado en el sistema.");
+		if(pedido.getId() != null) {
+			if(pedidoRepositorio.existsById(pedido.getId())) {
+				throw new Exception("Este Pedido ya se encuentra registrado en el sistema.");
+			}
 		}
 		return pedidoRepositorio.save(pedido);
 	}
