@@ -3,6 +3,8 @@ package com.yesid.backend.pedido.app.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,6 +29,7 @@ public class Categoria {
 	private String nombre;
 	private String descripcion;
 	
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="catalogo_id")
 	private Catalogo catalogo;
