@@ -44,8 +44,10 @@ public class ProductoService {
 	
 	@Transactional
 	public Producto save(Producto producto) throws Exception {
-		if(productoRepositorio.existsById(producto.getId())) {
-			throw new Exception("Este Producto ya se encuentra registrado en el sistema.");
+		if(producto.getId() != null) {
+			if(productoRepositorio.existsById(producto.getId())) {
+				throw new Exception("Este Producto ya se encuentra registrado en el sistema.");
+			}
 		}
 		return productoRepositorio.save(producto);
 	}
