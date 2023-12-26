@@ -35,8 +35,10 @@ public class MovimientoService {
 	
 	@Transactional
 	public Movimiento save(Movimiento movimiento) throws Exception {
-		if(movimientoRepositorio.existsById(movimiento.getId())) {
-			throw new Exception("Este Movimiento ya se encuentra registrado en el sistema.");
+		if(movimiento.getId() != null) {
+			if(movimientoRepositorio.existsById(movimiento.getId())) {
+				throw new Exception("Este Movimiento ya se encuentra registrado en el sistema.");
+			}
 		}
 		return movimientoRepositorio.save(movimiento);
 	}
