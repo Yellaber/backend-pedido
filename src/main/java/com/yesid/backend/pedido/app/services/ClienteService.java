@@ -44,8 +44,10 @@ public class ClienteService {
 	
 	@Transactional
 	public Cliente save(Cliente cliente) throws Exception {
-		if(clienteRepositorio.existsById(cliente.getId())) {
-			throw new Exception("Este Cliente ya se encuentra registrado en el sistema.");
+		if(cliente.getId() != null) {
+			if(clienteRepositorio.existsById(cliente.getId())) {
+				throw new Exception("Este Cliente ya se encuentra registrado en el sistema.");
+			}
 		}
 		return clienteRepositorio.save(cliente);
 	}
