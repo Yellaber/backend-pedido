@@ -35,8 +35,10 @@ public class MesaService {
 	
 	@Transactional
 	public Mesa save(Mesa mesa) throws Exception {
-		if(mesaRepositorio.existsById(mesa.getId())) {
-			throw new Exception("Esta Mesa ya se encuentra registrada en el sistema.");
+		if(mesa.getId() != null) {
+			if(mesaRepositorio.existsById(mesa.getId())) {
+				throw new Exception("Esta Mesa ya se encuentra registrada en el sistema.");
+			}
 		}
 		return mesaRepositorio.save(mesa);
 	}
