@@ -35,8 +35,10 @@ public class PagoService {
 	
 	@Transactional
 	public Pago save(Pago pago) throws Exception {
-		if(pagoRepositorio.existsById(pago.getId())) {
-			throw new Exception("Este Pago ya se encuentra registrado en el sistema.");
+		if(pago.getId() != null) {
+			if(pagoRepositorio.existsById(pago.getId())) {
+				throw new Exception("Este Pago ya se encuentra registrado en el sistema.");
+			}
 		}
 		return pagoRepositorio.save(pago);
 	}
