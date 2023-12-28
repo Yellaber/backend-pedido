@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -42,17 +42,17 @@ public class Pedido {
 	@NotNull
 	private Double envio;
 	
-	@JsonIgnoreProperties("pedidos")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cuenta_id")
 	private Cuenta cuenta;
 	
-	@JsonIgnoreProperties("pedidos")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
-	@JsonIgnoreProperties("pedidos")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="mesa_id")
 	private Mesa mesa;
