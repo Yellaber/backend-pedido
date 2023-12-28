@@ -3,8 +3,7 @@ package com.yesid.backend.pedido.app.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -30,12 +29,11 @@ public class Categoria {
 	private String nombre;
 	private String descripcion;
 	
-	@JsonBackReference
+	@JsonIgnoreProperties("categorias")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="catalogo_id")
 	private Catalogo catalogo;
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy="categoria", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Producto> productos;
 		
