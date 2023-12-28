@@ -3,7 +3,7 @@ package com.yesid.backend.pedido.app.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -46,17 +46,17 @@ public class Producto {
 	private Double precio;	
 	private String tipo; //Terminado, insumo
 	
-	@JsonIgnoreProperties("productos")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="categoria_id")
 	private Categoria categoria;
 	
-	@JsonIgnoreProperties("productos")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="proveedor_id")
 	private Proveedor proveedor;
 	
-	@JsonIgnoreProperties("productos")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
 	private Producto producto;
