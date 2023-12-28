@@ -35,17 +35,38 @@ Para las pruebas se creó una variable de entorno `URL` que contiene la direcci�
 
 ### Prueba para Catalogo
 * Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/catalogo`.
+  ![Prueba en Postman para Crear Catalogo](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-catalogo.png)
+  
 * Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/catalogo`.
+  ![Prueba en Postman para Obtener Catalogos](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-catalogos.png)
+  
 * Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/catalogo/{id}`.
+  ![Prueba en Postman para Obtener Catalogo por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-catalogo-id.png)
+  
 * Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/catalogo/{id}`.
+  ![Prueba en Postman para Actualizar Catalogo por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-catalogo-id.png)
 
 ### Prueba para Categoria
 * Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/categoria`.
+  ![Prueba en Postman para Crear Categoria 5](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-categoria-1.png)
+
+  ![Prueba en Postman para Crear Categoria 6](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-categoria-2.png)
+  
 * Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/categoria`.
+  ![Prueba en Postman para Obtener Categorias](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-categorias.png)
+  
 * Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/categoria/{id}`.
+  ![Prueba en Postman para Obtener Categoria por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-categoria-id-1.png)
 
 ### Prueba para Cliente
 * Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/cliente`.
+  ![Prueba en Postman para Crear Cliente](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-cliente.png)
+  
 * Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/cliente`.
+  ![Prueba en Postman para Obtener Clientes](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-clientes.png)
+  
 * Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/cliente/{cedula}`.
+  ![Prueba en Postman para Obtener Cliente por Cédula](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-cliente-cedula.png)
+  
 * Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/cliente/{id}`.
+  ![Prueba en Postman para Actualizar Cliente por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-cliente-id.png)
