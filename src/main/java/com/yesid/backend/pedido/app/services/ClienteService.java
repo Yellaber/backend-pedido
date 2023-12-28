@@ -63,6 +63,8 @@ public class ClienteService {
 		clienteEncontrado.setApellidos(cliente.getApellidos());
 		clienteEncontrado.setCiudad(cliente.getCiudad());
 		clienteEncontrado.setDireccion(cliente.getDireccion());
+		clienteEncontrado.setTelefono(cliente.getTelefono());
+		clienteEncontrado.setEmail(cliente.getEmail());
 		return clienteRepositorio.save(clienteEncontrado);
 	}
 	
