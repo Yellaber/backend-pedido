@@ -1,6 +1,6 @@
 package com.yesid.backend.pedido.app.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,12 +23,12 @@ public class ItemPedido {
 	@NotEmpty
 	private Integer cantidad;
 	
-	@JsonIgnoreProperties("items")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
 	private Producto producto;
 	
-	@JsonIgnoreProperties("items")
+	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pedido_id")
 	private Pedido pedido;
