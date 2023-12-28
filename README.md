@@ -1,5 +1,5 @@
 # Backend para Gestionar Pedidos
-Este repositorio contiene la API relacionada con la gestión de pedidos, empleando **JPA** para la persistencia, la relación entre sus entidades y sus correspondientes metodos CRUD.
+Este repositorio contiene la API para la gestión de pedidos de un Bar-Restaurante, empleando **JPA** para la persistencia, la relación entre sus entidades y sus correspondientes metodos CRUD.
 
 ## Entidades
 Catalogo, Categoria, Cliente, Cuenta, ItemPedido, Mesa, Movimiento, Pago, Pedido, Producto y Proveedor.
