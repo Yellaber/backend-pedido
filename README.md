@@ -29,3 +29,23 @@ Las Response de las Request de tipo `GET`, `POST`, `PUT` y `DELETE` así como lo
 
 ## Modelo ER
 ![Modelo ER de la BD para gestionar pedidos](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/modelo-er-backend-pedido.png)
+
+## Algunas pruebas realizadas con Postman
+Para las pruebas se creó una variable de entorno `URL` que contiene la dirección base para los endpoints `http://localhost:8080/api`.
+
+### Prueba para Catalogo
+* Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/catalogo`.
+* Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/catalogo`.
+* Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/catalogo/{id}`.
+* Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/catalogo/{id}`.
+
+### Prueba para Categoria
+* Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/categoria`.
+* Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/categoria`.
+* Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/categoria/{id}`.
+
+### Prueba para Cliente
+* Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/cliente`.
+* Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/cliente`.
+* Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/cliente/{cedula}`.
+* Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/cliente/{id}`.
