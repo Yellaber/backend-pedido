@@ -38,10 +38,10 @@ public class ClienteController {
 		}
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
+	@GetMapping("/{cedula}")
+	public ResponseEntity<?> buscarPorCedula(@PathVariable String cedula) {
 		try {
-			return ResponseEntity.ok(clienteService.findById(id));
+			return ResponseEntity.ok(clienteService.findByCedula(cedula));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
