@@ -8,8 +8,7 @@ import java.util.Map;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -43,24 +42,23 @@ public class Pedido {
 	@NotNull
 	private Double envio;
 	
-	@JsonBackReference
+	@JsonIgnoreProperties("pedidos")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cuenta_id")
 	private Cuenta cuenta;
 	
-	@JsonBackReference
+	@JsonIgnoreProperties("pedidos")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
-	@JsonBackReference
+	@JsonIgnoreProperties("pedidos")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="mesa_id")
 	private Mesa mesa;
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy="pedido", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<ItemPedido> itemsPedido;
+	private List<ItemPedido> items;
 	
 	@OneToOne(mappedBy="pedido")
 	private Pago pago;
@@ -70,7 +68,9 @@ public class Pedido {
 		this.fecha = new Date();
 	}
 	
-	public Pedido() {}
+	public Pedido() {
+		this.items = new ArrayList<ItemPedido>();
+	}
 	
 	public Long getId() {
 		return id;
@@ -129,11 +129,11 @@ public class Pedido {
 	}
 
 	public List<ItemPedido> getItemsPedido() {
-		return itemsPedido;
+		return items;
 	}
 
-	public void setItemsPedido(List<ItemPedido> itemsPedido) {
-		this.itemsPedido = itemsPedido;
+	public void setItemsPedido(List<ItemPedido> items) {
+		this.items = items;
 	}
 
 	public Pago getPago() {
@@ -145,12 +145,12 @@ public class Pedido {
 	}
 
 	public void addItemPedido(ItemPedido itemPedido) {
-		this.itemsPedido.add(itemPedido);
+		this.items.add(itemPedido);
 	}
 	
 	public Double getTotal() {
 		Double total = 0.0;
-		for(ItemPedido item: itemsPedido) {
+		for(ItemPedido item: items) {
 			total += item.calcularTotal();
 		}
 		return total;
@@ -158,7 +158,7 @@ public class Pedido {
 	
 	public Map<String, String> verificarStock() {
 		Map<String, String> resultado = new HashMap<String, String>();
-		for(ItemPedido item: itemsPedido) {
+		for(ItemPedido item: items) {
 			int cantidad = item.getCantidad().intValue();
 			int stock = item.getProducto().getStock().intValue();
 			if(cantidad > stock) {
@@ -170,7 +170,7 @@ public class Pedido {
 	
 	public List<Producto> actualizarStock() {
 		List<Producto> productos = new ArrayList<Producto>();
-		for(ItemPedido item: itemsPedido) {
+		for(ItemPedido item: items) {
 			Producto producto = item.getProducto();
 			producto.setStock(producto.getStock() - item.getCantidad());
 			productos.add(producto);
