@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,7 +35,7 @@ public class Movimiento {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
-	@JsonBackReference
+	@JsonIgnoreProperties("movimientos")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
 	private Producto producto;
