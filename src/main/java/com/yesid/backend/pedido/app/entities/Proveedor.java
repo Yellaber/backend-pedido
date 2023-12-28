@@ -3,8 +3,6 @@ package com.yesid.backend.pedido.app.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,7 +34,6 @@ public class Proveedor {
 	@Email
 	private String email;
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy="proveedor", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Producto> productos;
 	
