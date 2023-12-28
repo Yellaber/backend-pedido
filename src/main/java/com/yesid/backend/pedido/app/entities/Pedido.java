@@ -20,6 +20,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -60,6 +61,9 @@ public class Pedido {
 	@JsonManagedReference
 	@OneToMany(mappedBy="pedido", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<ItemPedido> itemsPedido;
+	
+	@OneToOne(mappedBy="pedido")
+	private Pago pago;
 	
 	@PrePersist
 	public void prePersist() {
@@ -130,6 +134,14 @@ public class Pedido {
 
 	public void setItemsPedido(List<ItemPedido> itemsPedido) {
 		this.itemsPedido = itemsPedido;
+	}
+
+	public Pago getPago() {
+		return pago;
+	}
+
+	public void setPago(Pago pago) {
+		this.pago = pago;
 	}
 
 	public void addItemPedido(ItemPedido itemPedido) {
