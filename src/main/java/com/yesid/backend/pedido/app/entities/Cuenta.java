@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -41,7 +41,7 @@ public class Cuenta {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
-	@JsonIgnoreProperties("cuenta")
+	@JsonBackReference
 	@OneToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente; 
