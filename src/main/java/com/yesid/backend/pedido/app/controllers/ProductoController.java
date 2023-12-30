@@ -38,7 +38,7 @@ public class ProductoController {
 	@GetMapping("/{nombre}")
 	public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre) {
 		try {
-			return ResponseEntity.ok(productoService.findAllByNombreLike(nombre));
+			return ResponseEntity.ok(productoService.findByNombreLike(nombre));
 		} catch(Exception ex) {
 			return Validacion.registrarError(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
