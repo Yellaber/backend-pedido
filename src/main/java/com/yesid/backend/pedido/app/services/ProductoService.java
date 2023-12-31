@@ -64,6 +64,9 @@ public class ProductoService {
 		productoEncontrado.setStock(producto.getStock());
 		productoEncontrado.setPrecio(producto.getPrecio());
 		productoEncontrado.setTipo(producto.getTipo());
+		productoEncontrado.setCategoria(producto.getCategoria());
+		productoEncontrado.setProveedor(producto.getProveedor());
+		productoEncontrado.setProducto(producto.getProducto());
 		return productoRepositorio.save(productoEncontrado);
 	}
 	
