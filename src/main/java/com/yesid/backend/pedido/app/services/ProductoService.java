@@ -34,8 +34,8 @@ public class ProductoService {
 	}
 	
 	@Transactional(readOnly=true)
-	public List<Producto> findAllByNombreLike(String nombre) throws Exception {
-		List<Producto> productos = productoRepositorio.findAllByNombreLike(nombre);
+	public List<Producto> findByNombreLike(String nombre) throws Exception {
+		List<Producto> productos = productoRepositorio.findByNombreLike(nombre);
 		if(productos == null || productos.isEmpty()) {
 			throw new Exception("No se encontraron Productos que concidan con: " + nombre + ".");
 		}
