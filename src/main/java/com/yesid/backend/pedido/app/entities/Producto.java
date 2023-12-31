@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,6 +33,7 @@ public class Producto {
 	
 	@NotBlank
 	private String nombre;
+	private String descripcion;
 	
 	@NotBlank
 	private String medida; //Kilogramos, gramos, centimetros, unidades
@@ -46,28 +48,31 @@ public class Producto {
 	private Double precio;	
 	private String tipo; //Terminado, insumo
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="categoria_id")
+	@JsonBackReference(value="producto_categoria")
 	private Categoria categoria;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="proveedor_id")
+	@JsonBackReference(value="producto_proveedor")
 	private Proveedor proveedor;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
+	@JsonBackReference(value="producto_producto")
 	private Producto producto;
 	
 	@OneToMany(mappedBy="producto", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonManagedReference(value="producto_producto")
 	private List<Producto> productos;
 	
 	@OneToMany(mappedBy="producto", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonManagedReference(value="item_producto")
 	private List<ItemPedido> items;
 	
 	@OneToMany(mappedBy="producto", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonManagedReference(value="movimiento_producto")
 	private List<Movimiento> movimientos;
 	
 	public Producto() {
@@ -94,6 +99,14 @@ public class Producto {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public String getMedida() {
