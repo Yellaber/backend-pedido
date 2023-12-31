@@ -23,14 +23,14 @@ public class ItemPedido {
 	@NotEmpty
 	private Integer cantidad;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
+	@JsonBackReference(value="item_producto")
 	private Producto producto;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pedido_id")
+	@JsonBackReference(value="item_pedido")
 	private Pedido pedido;
 	
 	public ItemPedido() {}
