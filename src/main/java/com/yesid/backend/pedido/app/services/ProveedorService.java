@@ -35,7 +35,7 @@ public class ProveedorService {
 	
 	@Transactional(readOnly=true)
 	public List<Proveedor> findByNombre(String nombre) throws Exception {
-		List<Proveedor> proveedores = proveedorRepositorio.findByNombre(nombre);
+		List<Proveedor> proveedores = proveedorRepositorio.findByNombreLike(nombre);
 		if(proveedores == null || proveedores.isEmpty()) {
 			throw new Exception("No se encontraron Proveedores que concidan con: " + nombre + ".");
 		}
