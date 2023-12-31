@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -42,25 +43,27 @@ public class Pedido {
 	@NotNull
 	private Double envio;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cuenta_id")
+	@JsonBackReference(value="pedido_cuenta")
 	private Cuenta cuenta;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cliente_id")
+	@JsonBackReference(value="pedido_cliente")
 	private Cliente cliente;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="mesa_id")
+	@JsonBackReference(value="pedido_mesa")
 	private Mesa mesa;
 	
 	@OneToMany(mappedBy="pedido", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonManagedReference(value="item_pedido")
 	private List<ItemPedido> items;
 	
 	@OneToOne(mappedBy="pedido")
+	@JsonManagedReference(value="pago_pedido")
 	private Pago pago;
 	
 	@PrePersist
