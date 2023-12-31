@@ -51,6 +51,7 @@ public class CategoriaService {
 		}
 		etiquetaEncontrada.setNombre(etiqueta.getNombre());
 		etiquetaEncontrada.setDescripcion(etiqueta.getDescripcion());
+		etiquetaEncontrada.setCatalogo(etiqueta.getCatalogo());
 		return categoriaRepositorio.save(etiquetaEncontrada);
 	}
 	
