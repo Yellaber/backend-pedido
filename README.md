@@ -70,3 +70,16 @@ Para las pruebas se creó una variable de entorno `URL` que contiene la direcci�
   
 * Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/cliente/{id}`.
   ![Prueba en Postman para Actualizar Cliente por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-cliente-id.png)
+
+### Prueba para Mesa
+* Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/mesa`.
+  ![Prueba en Postman para Crear Cliente](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-mesa.png)
+  
+* Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/mesa`.
+  ![Prueba en Postman para Obtener Clientes](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-mesas.png)
+  
+* Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/mesa/{id}`.
+  ![Prueba en Postman para Obtener Cliente por Cédula](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-mesa-id.png)
+  
+* Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/mesa/{id}`.
+  ![Prueba en Postman para Actualizar Cliente por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-mesa-id.png)
