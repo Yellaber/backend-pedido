@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -41,12 +42,13 @@ public class Cuenta {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
-	@JsonBackReference
 	@OneToOne
 	@JoinColumn(name="cliente_id")
+	@JsonBackReference(value="cuenta_cliente")
 	private Cliente cliente; 
 	
 	@OneToMany(mappedBy="cuenta", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonManagedReference(value="pedido_cuenta")
 	private List<Pedido> pedidos;
 	
 	public Cuenta() {
