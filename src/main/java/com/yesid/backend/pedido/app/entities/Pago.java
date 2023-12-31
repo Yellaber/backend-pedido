@@ -30,9 +30,9 @@ public class Pago {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
-	@JsonBackReference
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="pedido_id")
+	@JsonBackReference(value="pago_pedido")
 	private Pedido pedido;
 	
 	@PrePersist
