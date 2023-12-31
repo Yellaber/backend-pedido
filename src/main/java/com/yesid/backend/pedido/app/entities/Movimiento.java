@@ -35,9 +35,9 @@ public class Movimiento {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="producto_id")
+	@JsonBackReference(value="movimiento_producto")
 	private Producto producto;
 	
 	@PrePersist
