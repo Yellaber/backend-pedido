@@ -60,7 +60,10 @@ public class ProductoService {
 		}
 		productoEncontrado.setCodigo(producto.getCodigo());
 		productoEncontrado.setNombre(producto.getNombre());
+		productoEncontrado.setDescripcion(producto.getDescripcion());
+		productoEncontrado.setStock(producto.getStock());
 		productoEncontrado.setPrecio(producto.getPrecio());
+		productoEncontrado.setTipo(producto.getTipo());
 		return productoRepositorio.save(productoEncontrado);
 	}
 	
