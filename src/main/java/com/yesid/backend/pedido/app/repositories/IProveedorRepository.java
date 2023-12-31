@@ -12,5 +12,5 @@ import com.yesid.backend.pedido.app.entities.Proveedor;
 public interface IProveedorRepository extends JpaRepository<Proveedor, Long> {
 	
 	@Query("select p from Proveedor p where lower(p.nombre) like lower(concat(:nombre, '%'))")
-	List<Proveedor> findByNombre(String nombre);
+	List<Proveedor> findByNombreLike(String nombre);
 }
