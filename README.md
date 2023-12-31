@@ -73,26 +73,39 @@ Para las pruebas se creó una variable de entorno `URL` que contiene la direcci�
 
 ### Prueba para Mesa
 * Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/mesa`.
-  ![Prueba en Postman para Crear Cliente](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-mesa.png)
+  ![Prueba en Postman para Crear Mesa](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-mesa.png)
   
 * Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/mesa`.
-  ![Prueba en Postman para Obtener Clientes](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-mesas.png)
+  ![Prueba en Postman para Obtener Mesas](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-mesas.png)
   
 * Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/mesa/{id}`.
-  ![Prueba en Postman para Obtener Cliente por Cédula](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-mesa-id.png)
+  ![Prueba en Postman para Obtener Mesa por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-mesa-id.png)
   
 * Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/mesa/{id}`.
-  ![Prueba en Postman para Actualizar Cliente por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-mesa-id.png)
+  ![Prueba en Postman para Actualizar Mesa por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-mesa-id.png)
 
 ### Prueba para Producto
 * Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/producto`.
-  ![Prueba en Postman para Crear Cliente](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-producto.png)
+  ![Prueba en Postman para Crear Producto](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-producto.png)
   
 * Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/producto`.
-  ![Prueba en Postman para Obtener Clientes](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-productos.png)
+  ![Prueba en Postman para Obtener Productos](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-productos.png)
   
 * Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/producto/{nombre}`.
-  ![Prueba en Postman para Obtener Cliente por Cédula](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-producto-nombre.png)
+  ![Prueba en Postman para Obtener Producto por Nombre](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-producto-nombre.png)
   
 * Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/producto/{id}`.
-  ![Prueba en Postman para Actualizar Cliente por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-producto-id-1.png)
+  ![Prueba en Postman para Actualizar Producto por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-producto-id-1.png)
+
+### Prueba para Proveedor
+* Operación CRUD: `CREAR`. Tipo de request: `POST`. Endpoint: `{{URL}}/proveedor`.
+  ![Prueba en Postman para Crear Proveedor](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-crear-proveedor.png)
+  
+* Operación CRUD: `LISTAR`. Tipo de request: `GET`. Endpoint: `{{URL}}/proveedor`.
+  ![Prueba en Postman para Obtener Proveedores](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-proveedores.png)
+  
+* Operación CRUD: `OBTENER`. Tipo de request: `GET`. Endpoint: `{{URL}}/proveedor/{nombre}`.
+  ![Prueba en Postman para Obtener Proveedor por Nombre](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-obtener-proveedor-nombre.png)
+  
+* Operación CRUD: `ACTUALIZAR`. Tipo de request: `PUT`. Endpoint: `{{URL}}/proveedor/{id}`.
+  ![Prueba en Postman para Actualizar Proveedor por ID](https://raw.githubusercontent.com/Yellaber/backend-pedido/main/src/main/resources/static/images/postman-actualizar-proveedor-id-1.png)
