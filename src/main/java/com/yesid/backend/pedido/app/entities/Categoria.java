@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -29,12 +30,13 @@ public class Categoria {
 	private String nombre;
 	private String descripcion;
 	
-	@JsonBackReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="catalogo_id")
+	@JsonBackReference(value="categoria_catalogo")
 	private Catalogo catalogo;
 	
 	@OneToMany(mappedBy="categoria", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonManagedReference(value="producto_categoria")
 	private List<Producto> productos;
 		
 	public Categoria() {
